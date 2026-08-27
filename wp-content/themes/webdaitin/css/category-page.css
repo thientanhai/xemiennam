@@ -1,0 +1,576 @@
+/* ==========================================================================
+   WebDaiTin Category Archive Page - Hợp Phát Style Theme
+   ========================================================================== */
+
+:root {
+    --webdaitin-surface: #ffffff;
+    --webdaitin-surface-soft: #f8fafc;
+    --webdaitin-border: #e2e8f0;
+    --webdaitin-text: #0f172a;
+    --webdaitin-muted: #64748b;
+    --webdaitin-accent: #166872;
+    --webdaitin-accent-strong: #0e4e56;
+    --webdaitin-accent-light: rgba(22, 104, 114, 0.08);
+    --webdaitin-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
+    --webdaitin-shadow-hover: 0 8px 24px rgba(15, 23, 42, 0.12);
+}
+
+.category-archive-page {
+    background-color: #f8fafc;
+    padding: 12px 0 64px;
+    font-family: inherit;
+}
+
+.webdaitin-category-shell {
+    width: min(1240px, calc(100% - 32px));
+    margin: 0 auto;
+}
+
+/* Breadcrumbs */
+.webdaitin-category-breadcrumbs {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    color: var(--webdaitin-muted);
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.webdaitin-category-breadcrumbs a {
+    color: var(--webdaitin-muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.webdaitin-category-breadcrumbs a:hover {
+    color: var(--webdaitin-accent);
+}
+
+.webdaitin-category-breadcrumbs .breadcrumb-current {
+    color: var(--webdaitin-text);
+    font-weight: 600;
+}
+
+.breadcrumb-separator {
+    color: #cbd5e1;
+}
+
+/* Subcategory Navigation Tabs */
+.webdaitin-category-tabs {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 24px;
+    overflow-x: auto;
+    padding: 0 0 10px 0;
+    margin-bottom: 28px;
+    border-bottom: 2px solid #e2e8f0;
+    scrollbar-width: none;
+}
+
+.webdaitin-category-tabs::-webkit-scrollbar {
+    display: none;
+}
+
+.webdaitin-category-tab {
+    flex: 0 0 auto;
+    padding: 8px 0 12px 0;
+    color: #64748b;
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: uppercase;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.2s ease;
+}
+
+.webdaitin-category-tab:hover {
+    color: var(--webdaitin-accent);
+}
+
+.webdaitin-category-tab.is-active {
+    color: var(--webdaitin-accent);
+}
+
+.webdaitin-category-tab.is-active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background-color: var(--webdaitin-accent);
+    border-radius: 3px 3px 0 0;
+}
+
+/* Subcategory Section (Hợp Phát Style) */
+.webdaitin-hopphat-section {
+    margin-bottom: 42px;
+    background: var(--webdaitin-surface);
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: var(--webdaitin-shadow);
+    border: 1px solid var(--webdaitin-border);
+}
+
+.webdaitin-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 12px;
+    margin-bottom: 22px;
+    border-bottom: 2px solid var(--webdaitin-accent);
+}
+
+.webdaitin-section-title {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.webdaitin-section-title a {
+    color: var(--webdaitin-accent);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.webdaitin-section-title a:hover {
+    color: var(--webdaitin-accent-strong);
+}
+
+.webdaitin-section-more {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--webdaitin-accent);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.webdaitin-section-more:hover {
+    color: var(--webdaitin-accent-strong);
+    transform: translateX(3px);
+}
+
+/* Feature Layout: 2 Columns */
+.webdaitin-feature-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: 28px;
+    align-items: start;
+}
+
+.webdaitin-feature-column {
+    min-width: 0;
+}
+
+/* Left Column: Featured Card */
+.webdaitin-featured-card {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.webdaitin-card-image-link {
+    display: block;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 14px;
+}
+
+.webdaitin-card-image-link img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+    transition: transform 0.35s ease;
+}
+
+.webdaitin-card-image-link:hover img {
+    transform: scale(1.04);
+}
+
+.webdaitin-featured-title {
+    margin: 0 0 10px 0;
+    font-size: 20px!important;
+    font-weight: 800;
+    line-height: 1.35;
+}
+
+.webdaitin-featured-title a {
+    color: var(--webdaitin-text);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.webdaitin-featured-title a:hover {
+    color: var(--webdaitin-accent);
+}
+
+.webdaitin-post-excerpt {
+    margin: 0;
+    color: #475569;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Right Column: Latest Posts List */
+.webdaitin-latest-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.webdaitin-latest-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding-bottom: 16px;
+    border-bottom: 1px dashed #e2e8f0;
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.webdaitin-latest-item:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.webdaitin-latest-thumb {
+    flex: 0 0 140px;
+    width: 140px;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #e2e8f0;
+    display: block;
+}
+
+.webdaitin-latest-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.35s ease;
+}
+
+.webdaitin-latest-thumb:hover img {
+    transform: scale(1.06);
+}
+
+.webdaitin-latest-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.webdaitin-latest-title {
+    margin: 0 0 6px 0;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.35;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.webdaitin-latest-title a {
+    color: var(--webdaitin-text);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.webdaitin-latest-title a:hover {
+    color: var(--webdaitin-accent);
+}
+
+.webdaitin-post-meta--compact {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    font-size: 12px;
+    color: #64748b;
+    margin-bottom: 6px;
+}
+
+.meta-icon {
+    font-style: normal;
+    margin-right: 2px;
+}
+
+.webdaitin-post-excerpt--compact {
+    font-size: 13px;
+    color: #64748b;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin: 0;
+}
+
+/* Image Placeholder fallback */
+.webdaitin-img-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+}
+
+/* Grid Section (Remaining Posts) */
+.webdaitin-grid-section {
+    margin-top: 32px;
+}
+
+.webdaitin-post-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.webdaitin-grid-card {
+    background: var(--webdaitin-surface);
+    border-radius: 10px;
+    border: 1px solid var(--webdaitin-border);
+    overflow: hidden;
+    box-shadow: var(--webdaitin-shadow);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.webdaitin-grid-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--webdaitin-shadow-hover);
+}
+
+.webdaitin-grid-thumb {
+    display: block;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+}
+
+.webdaitin-grid-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.35s ease;
+}
+
+.webdaitin-grid-thumb:hover img {
+    transform: scale(1.05);
+}
+
+.webdaitin-grid-body {
+    padding: 16px;
+}
+
+.webdaitin-grid-title {
+    margin: 0 0 8px 0;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.35;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.webdaitin-grid-title a {
+    color: var(--webdaitin-text);
+    text-decoration: none;
+}
+
+.webdaitin-grid-title a:hover {
+    color: var(--webdaitin-accent);
+}
+
+/* Pagination */
+.webdaitin-pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 36px;
+}
+
+.webdaitin-pagination ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.webdaitin-pagination a,
+.webdaitin-pagination span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    height: 40px;
+    padding: 0 12px;
+    border-radius: 8px;
+    border: 1px solid var(--webdaitin-border);
+    background: var(--webdaitin-surface);
+    color: var(--webdaitin-text);
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.webdaitin-pagination a:hover,
+.webdaitin-pagination .current {
+    background: var(--webdaitin-accent);
+    color: #ffffff;
+    border-color: var(--webdaitin-accent);
+}
+
+/* Empty State */
+.webdaitin-empty-state {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 40px 24px;
+    text-align: center;
+    background: var(--webdaitin-surface);
+    border-radius: 12px;
+    border: 1px solid var(--webdaitin-border);
+}
+
+.webdaitin-empty-state h2 {
+    margin: 0 0 10px 0;
+    color: var(--webdaitin-text);
+    font-size: 24px;
+}
+
+.webdaitin-empty-state p {
+    margin: 0;
+    color: var(--webdaitin-muted);
+}
+
+/* Responsive Styles */
+@media (max-width: 991px) {
+    .webdaitin-feature-layout {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 24px;
+    }
+
+    .webdaitin-post-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 640px) {
+    .webdaitin-hopphat-section {
+        padding: 16px;
+    }
+
+    .webdaitin-section-title {
+        font-size: 18px;
+    }
+
+    .webdaitin-section-more {
+        font-size: 13px;
+    }
+
+    .webdaitin-featured-title {
+        font-size: 17px;
+    }
+
+    .webdaitin-latest-item {
+        gap: 10px;
+    }
+
+    .webdaitin-latest-thumb {
+        flex: 0 0 110px;
+        width: 110px;
+    }
+
+    .webdaitin-latest-title {
+        font-size: 14px;
+    }
+
+    .webdaitin-post-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==========================================================================
+   Category Hero Banner (Fullwidth ~500px)
+   ========================================================================== */
+.webdaitin-category-hero {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    min-height: 500px;
+    border-radius: 0;
+    overflow: hidden;
+    box-shadow: var(--webdaitin-shadow);
+    margin: 0 0 28px 0;
+    background: linear-gradient(135deg, rgba(22, 50, 65, 0.85), rgba(31, 125, 155, 0.65));
+}
+
+.webdaitin-category-hero__media,
+.webdaitin-category-hero__fallback,
+.webdaitin-category-hero__media img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.webdaitin-category-hero__media img {
+    object-fit: cover;
+    object-position: center;
+}
+
+.webdaitin-category-hero__fallback {
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.12), transparent 30%),
+        radial-gradient(circle at 80% 10%, rgba(255, 255, 255, 0.12), transparent 25%),
+        linear-gradient(135deg, rgba(22, 50, 65, 0.96), rgba(31, 125, 155, 0.72));
+}
+
+.webdaitin-category-hero__overlay {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    padding: 32px 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.60) 100%);
+}
+
+.webdaitin-category-hero__content {
+    color: #fff;
+    width: 100%;
+}
+
+.webdaitin-category-hero .webdaitin-category-title {
+    color: #ffffff !important;
+    font-size: clamp(36px, 4vw, 56px) !important;
+    text-align: left;
+    text-transform: uppercase;
+    font-weight: 800;
+    margin: 0;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.webdaitin-category-summary {
+    margin: 14px 0 0;
+    max-width: 680px;
+    font-size: 16px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.92);
+}
+
+@media (max-width: 768px) {
+    .webdaitin-category-hero,
+    .webdaitin-category-hero__overlay {
+        height: 200px;
+        min-height: 200px;
+    }
+}

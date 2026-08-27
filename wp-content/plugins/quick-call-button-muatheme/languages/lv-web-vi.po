@@ -1,0 +1,115 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Quick Call Button\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-11-09 08:49+0000\n"
+"PO-Revision-Date: 2017-11-09 08:57+0000\n"
+"Last-Translator: caonguyen <caohat@gmail.com>\n"
+"Language-Team: Vietnamese\n"
+"Language: vi\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco - https://localise.biz/"
+
+#. Name of the plugin
+#: quick-call-button.php:104
+msgid "Quick Call Button"
+msgstr ""
+
+#: quick-call-button.php:112
+msgid "Settings"
+msgstr "Cài Đặt"
+
+#: quick-call-button.php:113
+msgid ""
+"Change the appearance of the quick call button display on the screen.The "
+"default is 860px."
+msgstr ""
+"Thay đổi giao diện hiển thị nút gọi nhanh trên màn hình. Mặc định là 860px."
+
+#: quick-call-button.php:116
+msgid "Display On Screen"
+msgstr "Hiển Thị Trên Độ Phân Giải Màn Hình ->"
+
+#: quick-call-button.php:124
+msgid ""
+"Move the quick call button by changing the digits in the settings box below. "
+"Default Top is 50% & Left is 3% ."
+msgstr ""
+"Di chuyển nút gọi nhanh bằng cách thay đổi các chữ số trong hộp cài đặt bên "
+"dưới. Mặc định cách bên trên là 50% & còn bên trái là 3%."
+
+#: quick-call-button.php:127
+msgid "Top"
+msgstr "Bên Trên"
+
+#: quick-call-button.php:133
+msgid "Left"
+msgstr "Bên Trái"
+
+#: quick-call-button.php:140
+msgid ""
+"Adding a phone number for a quick call button will appear on your website."
+msgstr ""
+"Thêm số điện thoại cho một nút gọi nhanh sẽ xuất hiện trên trang web của bạn."
+
+#: quick-call-button.php:143
+msgid "Phone Number"
+msgstr "Số Điện Thoại"
+
+#: quick-call-button.php:150
+msgid "Adding a text for a quick call button will appear on your website."
+msgstr ""
+"Thêm văn bản cho một nút gọi nhanh sẽ xuất hiện trên trang web của bạn."
+
+#: quick-call-button.php:153
+msgid "Text"
+msgstr "Văn Bản"
+
+#: quick-call-button.php:156
+msgid " Disabled Text On Tablet"
+msgstr "Chọn Để Tắt Văn Bản Trên Máy Tính Bảng"
+
+#: quick-call-button.php:158
+msgid " Disabled Text On Desktop"
+msgstr "Chọn Để Tắt Văn Bản Trên Máy Tính"
+
+#: quick-call-button.php:164
+msgid "Bar Background"
+msgstr ""
+
+#: quick-call-button.php:171
+msgid "Button Color"
+msgstr ""
+
+#: quick-call-button.php:179
+msgid "Save Changes"
+msgstr "Lưu Thay Đổi"
+
+#: quick-call-button.php:241
+msgid "Plugin not configured properly. Missing Phone Number values."
+msgstr ""
+
+#: quick-call-button.php:259
+msgid "Call Now"
+msgstr ""
+
+#. Description of the plugin
+msgid ""
+"add quick call button, call now button for any wordpress website on ipad and "
+"mobile phone."
+msgstr ""
+
+#. URI of the plugin
+msgid "https://longvietweb.com/plugins/"
+msgstr ""
+
+#. Author of the plugin
+msgid "LongViet"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://longvietweb.com/"
+msgstr ""

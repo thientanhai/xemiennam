@@ -1,0 +1,945 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+.header-bottom-nav {justify-content: space-between!important}
+.section__why .col{padding-bottom:0!important}
+#section_1628658210 {padding-bottom:0!important}
+.entry-content a {
+     color: #E65F5C!important;
+}
+/* Sử dụng đúng mã content của class .icon-phone */
+.header-button-1 .header-button a.button span::before {
+    content: "\e600"; /* Mã chuẩn của icon-phone */
+    font-family: "fl-icons"; /* Font icon của Flatsome */
+    margin-right: 8px; /* Khoảng cách đến số điện thoại */
+    display: inline-block;
+    vertical-align: middle;
+}
+.header-button-1 .header-button a.button span {color:#000!important}
+.header-button-1 .header-button a {background:#fff!important;}
+.section__footer ul li {
+margin-left:0!important;
+}
+
+
+.archive .widget_nav_menu {
+    display:none;
+}
+
+body, h1, h2, h3, h4, h5, h6, .nav, p, a {
+    font-family: 'Inter', sans-serif !important;
+}
+
+h1, .entry-title, .page-title {
+    font-size: 30px !important;
+    line-height: 1.3 !important;
+}
+
+.rank-math-breadcrumb p {
+    margin-bottom:5px!important;
+}
+
+h2, .post-title {
+    font-size: 25px !important;
+    line-height: 1.3 !important;
+}
+
+h3 {
+    font-size: 18px !important;
+    line-height: 1.4 !important;
+}
+
+
+.call-now-button {
+    display: flex !important;
+    background: #019cad;
+    z-index: 9999;
+    clear: both;
+    margin: 0 auto;
+    position: fixed;
+    border-radius: 50px;
+    bottom: 5%;
+}
+.call-now-button .call-text {
+    color: #fff;
+}
+.call-now-button div p {
+    color: #fff;
+    display: table;
+    padding: 10px;
+    border-radius: 21px;
+    height: 34px;
+    line-height: 14px;
+    font-size: 14px;
+    margin: 8px 5px 8px 50px;
+    text-transform: uppercase;
+    font-weight: normal;
+    text-align: center;
+    box-sizing: content-box;
+    text-decoration: none !important;
+    box-sizing: border-box;
+}
+.call-now-button .call-text > a:link, .call-now-button .call-text > a:visited {
+    color: #fff;
+}
+
+.call-now-button p.call-text a:link {
+    color: #ffffff;
+}
+
+.call-now-button div {
+    display: flex
+}
+.quick-alo-ph-btn-icon.quick-alo-zalo-img-circle {
+    background: url(https://xemiennam.vn/wp-content/plugins/quick-call-button-muatheme/images/quick-call-button-zalo.png) no-repeat center center!important;
+    background-size: 40px 40px!important;
+}
+
+.call-now-button {
+    display: flex !important;
+    background: #019cad;
+ display: flex !important; background: #019cad; z-index: 9999; clear: both; margin: 0 auto; position: fixed; border-radius: 50px; bottom: 5%;left:3%;
+}
+
+.call-now-button div p {
+    color: #fff;
+    display: table;
+    padding: 10px;
+    border-radius: 21px;
+    height: 34px;
+    line-height: 14px;
+    font-size: 14px;
+    margin: 8px 5px 8px 50px;
+    text-transform: uppercase;
+    font-weight: normal;
+    text-align: center;
+    box-sizing: content-box;
+    text-decoration: none!important;
+    box-sizing: border-box
+}
+
+.quick-alo-ph-circle {
+    width: 80px;
+    height: 80px!important;
+    top: -10px;
+    left: -10px;
+    position: absolute;
+    background-color: transparent;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    border: 5px solid rgba(30,30,30,.4);
+    opacity: 1;
+    -webkit-animation: quick-alo-circle-anim 1.2s infinite ease-in-out;
+    -moz-animation: quick-alo-circle-anim 1.2s infinite ease-in-out;
+    -ms-animation: quick-alo-circle-anim 1.2s infinite ease-in-out;
+    -o-animation: quick-alo-circle-anim 1.2s infinite ease-in-out;
+    animation: quick-alo-circle-anim 1.2s infinite ease-in-out;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
+    -webkit-transform-origin: 50% 50%;
+    -moz-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    -o-transform-origin: 50% 50%;
+    transform-origin: 50% 50%
+}
+
+.quick-alo-ph-circle-fill {
+    width: 70px;
+    height: 70px;
+    top: -5px;
+    left: -5px;
+    position: absolute;
+    background-color: #000;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    border: 2px solid transparent;
+    opacity: 1;
+    -webkit-animation: quick-alo-circle-fill-anim 2.3s infinite ease-in-out;
+    -moz-animation: quick-alo-circle-fill-anim 2.3s infinite ease-in-out;
+    -ms-animation: quick-alo-circle-fill-anim 2.3s infinite ease-in-out;
+    -o-animation: quick-alo-circle-fill-anim 2.3s infinite ease-in-out;
+    animation: quick-alo-circle-fill-anim 2.3s infinite ease-in-out;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
+    -webkit-transform-origin: 50% 50%;
+    -moz-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    -o-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+}
+
+.quick-alo-ph-btn-icon.quick-alo-email-img-circle {
+    background: url(../../images/quick-call-button-email.png) no-repeat center center;
+    background-size: 40px 40px;
+}
+
+.quick-alo-ph-btn-icon.quick-alo-cart-img-circle {
+    background: url(../../images/quick-call-button-cart.png) no-repeat center center;
+    background-size: 40px 40px;
+}
+
+.quick-alo-ph-btn-icon.quick-alo-phone-img-circle {
+    background: url(../../images/quick-call-button-phone.png) no-repeat center center;
+    background-size: 40px 40px;
+}
+
+.quick-alo-ph-btn-icon.quick-alo-facebook-img-circle {
+    background: url(../../images/quick-call-button-facebook.png) no-repeat center center;
+    background-size: 40px 40px;
+}
+
+.quick-alo-ph-btn-icon.quick-alo-messenger-img-circle {
+    background: url(../../images/quick-call-button-messenger.png) no-repeat center center;
+    background-size: 40px 40px;
+}
+
+.quick-alo-ph-btn-icon.quick-alo-zalo-img-circle {
+    background: url(../../images/quick-call-button-zalo.png) no-repeat center center;
+    background-size: 40px 40px;
+}
+
+.quick-alo-ph-btn-icon {
+    width: 50px;
+    height: 50px;
+    top: 0;
+    left: 0;
+    position: absolute;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    border: 2px solid transparent;
+    opacity: 1;
+    -webkit-animation: quick-alo-circle-img-anim 1s infinite ease-in-out;
+    -moz-animation: quick-alo-circle-img-anim 1s infinite ease-in-out;
+    -ms-animation: quick-alo-circle-img-anim 1s infinite ease-in-out;
+    -o-animation: quick-alo-circle-img-anim 1s infinite ease-in-out;
+    animation: quick-alo-circle-img-anim 1s infinite ease-in-out;
+    -webkit-transform-origin: 50% 50%;
+    -moz-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    -o-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+}
+
+@-moz-keyframes quick-alo-circle-anim {
+    0% {
+        -moz-transform: rotate(0) scale(.5) skew(1deg);
+        opacity: .1;
+        -moz-opacity: .1;
+        -webkit-opacity: .1;
+        -o-opacity: .1
+    }
+
+    30% {
+        -moz-transform: rotate(0) scale(.7) skew(1deg);
+        opacity: .5;
+        -moz-opacity: .5;
+        -webkit-opacity: .5;
+        -o-opacity: .5
+    }
+
+    100% {
+        -moz-transform: rotate(0) scale(1) skew(1deg);
+        opacity: .6;
+        -moz-opacity: .6;
+        -webkit-opacity: .6;
+        -o-opacity: .1
+    }
+}
+
+@-webkit-keyframes quick-alo-circle-anim {
+    0% {
+        -webkit-transform: rotate(0) scale(.5) skew(1deg);
+        -webkit-opacity: .1
+    }
+
+    30% {
+        -webkit-transform: rotate(0) scale(.7) skew(1deg);
+        -webkit-opacity: .5
+    }
+
+    100% {
+        -webkit-transform: rotate(0) scale(1) skew(1deg);
+        -webkit-opacity: .1
+    }
+}
+
+@-o-keyframes quick-alo-circle-anim {
+    0% {
+        -o-transform: rotate(0) kscale(.5) skew(1deg);
+        -o-opacity: .1
+    }
+
+    30% {
+        -o-transform: rotate(0) scale(.7) skew(1deg);
+        -o-opacity: .5
+    }
+
+    100% {
+        -o-transform: rotate(0) scale(1) skew(1deg);
+        -o-opacity: .1
+    }
+}
+
+@-moz-keyframes quick-alo-circle-fill-anim {
+    0% {
+        -moz-transform: rotate(0) scale(.7) skew(1deg);
+        opacity: .2
+    }
+
+    50% {
+        -moz-transform: rotate(0) -moz-scale(1) skew(1deg);
+        opacity: .2
+    }
+
+    100% {
+        -moz-transform: rotate(0) scale(.7) skew(1deg);
+        opacity: .2
+    }
+}
+
+@-webkit-keyframes quick-alo-circle-fill-anim {
+    0% {
+        -webkit-transform: rotate(0) scale(.7) skew(1deg);
+        opacity: .2
+    }
+
+    50% {
+        -webkit-transform: rotate(0) scale(1) skew(1deg);
+        opacity: .2
+    }
+
+    100% {
+        -webkit-transform: rotate(0) scale(.7) skew(1deg);
+        opacity: .2
+    }
+}
+
+@-o-keyframes quick-alo-circle-fill-anim {
+    0% {
+        -o-transform: rotate(0) scale(.7) skew(1deg);
+        opacity: .2
+    }
+
+    50% {
+        -o-transform: rotate(0) scale(1) skew(1deg);
+        opacity: .2
+    }
+
+    100% {
+        -o-transform: rotate(0) scale(.7) skew(1deg);
+        opacity: .2
+    }
+}
+
+@-moz-keyframes quick-alo-circle-img-anim {
+    10% {
+        transform: rotate(0) scale(1) skew(1deg)
+    }
+
+    10% {
+        -moz-transform: rotate(-25deg) scale(1) skew(1deg)
+    }
+
+    20% {
+        -moz-transform: rotate(25deg) scale(1) skew(1deg)
+    }
+
+    30% {
+        -moz-transform: rotate(-25deg) scale(1) skew(1deg)
+    }
+
+    40% {
+        -moz-transform: rotate(25deg) scale(1) skew(1deg)
+    }
+
+    50% {
+        -moz-transform: rotate(0) scale(1) skew(1deg)
+    }
+
+    100% {
+        -moz-transform: rotate(0) scale(1) skew(1deg)
+    }
+}
+
+@-webkit-keyframes quick-alo-circle-img-anim {
+    0% {
+        -webkit-transform: rotate(0) scale(1) skew(1deg)
+    }
+
+    10% {
+        -webkit-transform: rotate(-25deg) scale(1) skew(1deg)
+    }
+
+    20% {
+        -webkit-transform: rotate(25deg) scale(1) skew(1deg)
+    }
+
+    30% {
+        -webkit-transform: rotate(-25deg) scale(1) skew(1deg)
+    }
+
+    40% {
+        -webkit-transform: rotate(25deg) scale(1) skew(1deg)
+    }
+
+    50% {
+        -webkit-transform: rotate(0) scale(1) skew(1deg)
+    }
+
+    100% {
+        -webkit-transform: rotate(0) scale(1) skew(1deg)
+    }
+}
+
+@-o-keyframes quick-alo-circle-img-anim {
+    0% {
+        -o-transform: rotate(0) scale(1) skew(1deg)
+    }
+
+    10% {
+        -o-transform: rotate(-25deg) scale(1) skew(1deg)
+    }
+
+    20% {
+        -o-transform: rotate(25deg) scale(1) skew(1deg)
+    }
+
+    30% {
+        -o-transform: rotate(-25deg) scale(1) skew(1deg)
+    }
+
+    40% {
+        -o-transform: rotate(25deg) scale(1) skew(1deg)
+    }
+
+    50% {
+        -o-transform: rotate(0) scale(1) skew(1deg)
+    }
+
+    100% {
+        -o-transform: rotate(0) scale(1) skew(1deg)
+    }
+}
+
+
+
+.call-now-button div {
+    display: flex;
+}
+.nav-spacing-xlarge>li {
+    margin: 0 13px!important;
+}
+#wide-nav{
+position: relative!important;
+left:auto!important;
+right:auto!important;
+width:100%!important;
+
+}
+
+
+
+
+
+
+/* CTA */
+/* --- CÀI ĐẶT CHUNG CHO NHÓM NÚT --- */
+.floating-cta-group {
+    position: fixed;
+    z-index: 99999;
+    display: flex;
+}
+
+.cta-item a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+}
+
+.cta-icon-wrapper {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Các class hiệu ứng vòng tròn của bạn (nếu đã có CSS thì có thể bỏ qua phần này) */
+.quick-alo-ph-circle, .quick-alo-ph-circle-fill {
+    position: absolute;
+    border-radius: 50%;
+}
+.quick-alo-ph-btn-icon {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 20px;
+}
+
+/* Màu nền ví dụ cho các nút */
+.cta-hotline .quick-alo-ph-btn-icon { background-color: #dd3333; }
+.cta-zalo .quick-alo-ph-btn-icon { background-color: #0084ff; }
+.cta-messenger .quick-alo-ph-btn-icon { background-color: #006aff; }
+.cta-quote .quick-alo-ph-btn-icon { background-color: #ff9800; }
+.widget .is-divider {display:none!important;}
+
+.widget_nav_menu span.widget-title {
+    font-size: 1em;
+    font-weight: 600;
+    color: var(--primary-color);
+    font-weight: 800;
+    font-size: 20px;
+    letter-spacing: 0;
+    text-align: center;
+}
+.menu-cac-loai-xe-container ul li a, .menu-dich-vu-container ul li a {
+    font-size: 14px;
+    font-weight: 500;
+    color: #000;
+    text-transform: none;
+    letter-spacing: 0;
+    text-align: left;
+    font-weight: 600!important;
+    padding: 4px 0!important;
+}
+
+.menu-dich-vu-container ul, .menu-cac-loai-xe-container ul{
+    margin: 0;
+    border: 1px solid #999;
+    padding: 10px 20px;
+    margin-top: 10px!important;
+}
+.box-blog-post .is-divider {display:none!important}
+
+.related__posts b{display:none!important}
+.related__posts .from_the_blog_excerpt, .related__posts .post-meta {color:#000!important} 
+.section__blog .box-text h5 {
+    font-size: 18px!important;
+}
+
+
+/* =========================================
+   GIAO DIỆN PC (Màn hình lớn hơn 768px)
+   - Nút nằm góc phải
+   - Xếp dọc
+========================================= */
+@media screen and (max-width: 849px) {
+    h2, .post-title {
+        font-size: 18px !important;
+        line-height: 1.3 !important;
+    }
+    .section__blog .box-text h5{
+        font-size: 14px!important;
+    }
+    .section__blog .box-blog-post .is-divider {
+        dispplay: none!important;
+    }
+
+}
+
+@media (min-width: 769px) {
+    .floating-cta-group {
+        bottom: 30px;
+        right: 30px;
+        flex-direction: column; /* Xếp dọc */
+        gap: 15px; /* Khoảng cách giữa các nút */
+    }
+    
+    .cta-item a {
+        flex-direction: row-reverse; /* Đảo ngược để text hiển thị bên trái icon */
+    }
+    
+    .cta-text {
+        margin-right: 15px;
+        background: #fff;
+        padding: 8px 15px;
+        border-radius: 20px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        white-space: nowrap;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateX(10px);
+        transition: all 0.3s ease;
+    }
+    
+    /* Hover vào hiện chữ ra */
+    .cta-item:hover .cta-text {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0);
+    }
+}
+
+/* =========================================
+   GIAO DIỆN MOBILE (Màn hình nhỏ hơn 768px)
+   - Nằm chính giữa, cố định dưới đáy
+   - Xếp ngang
+========================================= */
+@media (max-width: 768px) {
+    .floating-cta-group {
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        flex-direction: row; /* Xếp ngang */
+        justify-content: space-around; /* Chia đều khoảng cách */
+        background: #fff; /* Nền trắng cho thanh bottom bar */
+        box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+        padding: 10px 0 5px 0;
+    }
+    
+    .cta-item a {
+        flex-direction: column; /* Text nằm dưới icon */
+        gap: 5px;
+    }
+    
+    .cta-icon-wrapper {
+        width: 45px;  /* Thu nhỏ một chút trên mobile */
+        height: 45px;
+    }
+    
+    .quick-alo-ph-btn-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+    }
+    
+    .cta-text {
+        font-size: 12px;
+        display: block;
+        color: #555;
+    }
+    
+    /* Ẩn các vòng tròn lan tỏa quá to trên mobile để tránh vỡ giao diện */
+    .quick-alo-ph-circle, .quick-alo-ph-circle-fill {
+        display: none; 
+    }
+}
+
+.heading_404 h2 {margin-bottom:0px!important;}
+.heading_404 .text p{margin-bottom:10px!important;}
+
+
+
+
+
+
+/* Form home */
+
+/* =========================================
+   1. BAO QUÁT FORM & HEADER
+========================================= */
+.isolated-booking-form {
+    background: #fff !important;
+    border-radius: 10px !important;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08) !important;
+    overflow: hidden !important;
+    max-width: 900px !important;
+    margin: 0 auto !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif !important;
+}
+.isolated-booking-form .booking-header {
+    background: #3b7d8b !important;
+    color: #fff !important;
+    text-align: center !important;
+    padding: 10px !important;
+}
+.isolated-booking-form .booking-header h4 {
+    margin: 0 !important;
+    font-weight: 700 !important;
+    font-size: 16px !important;
+    text-transform: uppercase !important;
+    color: #fff !important;
+}
+.isolated-booking-form .booking-body {
+    padding: 25px !important;
+}
+.isolated-booking-form .form-row {
+    display: flex !important;
+    gap: 10px !important;
+    margin-bottom: 10px !important;
+    width: 100% !important;
+}
+.isolated-booking-form .booking-group {
+    flex: 1 !important;
+    min-width: 0 !important;
+}
+.isolated-booking-form .booking-group label {
+    display: block !important;
+    font-size: 10px !important;
+    font-weight: 700 !important;
+    color: #000 !important;
+    text-transform: uppercase !important;
+    margin-bottom: 4px !important;
+}
+.isolated-booking-form .booking-group label span {
+    color: red !important;
+}
+
+/* =========================================
+   2. RADIO BUTTONS (DẠNG BẢNG GRID)
+========================================= */
+.isolated-booking-form .grid-radio .wpcf7-form-control {
+    display: grid !important;
+    gap: 1px !important;
+    background: #e0e0e0 !important;
+    border: 1px solid #e0e0e0 !important;
+    border-radius: 6px !important;
+    overflow: hidden !important;
+}
+.isolated-booking-form .grid-radio-2col .wpcf7-form-control {
+    grid-template-columns: 1fr 1fr !important;
+}
+.isolated-booking-form .grid-radio-4col .wpcf7-form-control {
+    grid-template-columns: repeat(4, 1fr) !important;
+}
+.isolated-booking-form .grid-radio .wpcf7-list-item {
+    margin: 0 !important;
+    background: #fff !important;
+}
+.isolated-booking-form .grid-radio input[type="radio"] {
+    display: none !important;
+}
+.wpcf7 .wpcf7-not-valid-tip,
+.wpcf7 .wpcf7-not-valid-tip:after{
+background: transparent!important;
+border:none!important;
+font-size:9px!important;
+}
+.isolated-booking-form .grid-radio .wpcf7-list-item-label {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 100% !important;
+    padding:5px !important;
+    border-radius: 8px !important;
+    font-size: 10px !important;
+    font-weight: 500 !important;
+    color: #333 !important;
+    cursor: pointer !important;
+    text-align: center !important;
+    transition: all 0.2s ease !important;
+}
+
+/* Active State cho tất cả Radio */
+.isolated-booking-form .grid-radio input[type="radio"]:checked ~ .wpcf7-list-item-label {
+    background-color: #fdf3f3 !important;
+    color: #d93025 !important;
+}
+
+/* =========================================
+   3. ICON BẰNG UNICODE
+========================================= */
+.isolated-booking-form .grid-radio-2col .wpcf7-list-item-label {
+       justify-content: flex-start !important;
+       padding: 0px 5px 0px 5px !important;
+       gap: 5px !important;
+       border-radius: 8px;
+}
+.isolated-booking-form .grid-radio-2col .wpcf7-list-item-label::before {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif !important;
+    color: #888 !important;
+    width: 16px !important;
+    text-align: center !important;
+    transition: color 0.2s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+.isolated-booking-form .grid-radio-2col input[type="radio"]:checked ~ .wpcf7-list-item-label::before {
+    color: #d93025 !important;
+}
+
+/* Gán Icon Unicode cho từng mục */
+.isolated-booking-form .grid-radio-2col .wpcf7-list-item:nth-child(1) .wpcf7-list-item-label::before { content: "⇄" !important; font-size: 18px !important; font-weight: bold !important; } 
+.isolated-booking-form .grid-radio-2col .wpcf7-list-item:nth-child(2) .wpcf7-list-item-label::before { content: "→" !important; font-size: 18px !important; font-weight: bold !important; } 
+.isolated-booking-form .grid-radio-2col .wpcf7-list-item:nth-child(3) .wpcf7-list-item-label::before { content: "✈" !important; font-size: 16px !important; } 
+.isolated-booking-form .grid-radio-2col .wpcf7-list-item:nth-child(4) .wpcf7-list-item-label::before { content: "🗓" !important; font-size: 14px !important; } 
+.isolated-booking-form .grid-radio-2col .wpcf7-list-item:nth-child(5) .wpcf7-list-item-label::before { content: "🚘" !important; font-size: 14px !important; } 
+.isolated-booking-form .grid-radio-2col .wpcf7-list-item:nth-child(6) .wpcf7-list-item-label::before { content: "♡" !important; font-size: 18px !important; font-weight: bold !important; } 
+.isolated-booking-form .grid-radio-2col .wpcf7-list-item:nth-child(7) .wpcf7-list-item-label::before { content: "👥" !important; font-size: 14px !important; } 
+.isolated-booking-form .grid-radio-2col .wpcf7-list-item:nth-child(8) .wpcf7-list-item-label::before { content: "⋯" !important; font-size: 20px !important; font-weight: bold !important; } 
+
+/* =========================================
+   4. INPUT, SELECT, DATE, CHECKBOX
+========================================= */
+.isolated-booking-form .booking-group select,
+.isolated-booking-form .booking-group input[type="date"],
+.isolated-booking-form .booking-group input[type="text"],
+.isolated-booking-form .booking-group input[type="tel"] {
+    width: 100% !important;
+    padding: 6px !important;
+    border: 1px solid #ccc !important;
+    border-radius: 6px !important;
+    font-size: 12px !important;
+    color: #333 !important;
+    box-sizing: border-box !important;
+    outline: none !important;
+   box-shadow: unset!important;
+    background: #fff !important;
+    height: 32px !important;
+    -webkit-appearance: auto !important; /* Force select to show dropdown arrow */
+    margin-bottom:8px;
+}
+.isolated-booking-form .booking-group select:focus,
+.isolated-booking-form .booking-group input:focus {
+    border-color: #3b7d8b !important;
+}
+
+/* Checkbox Hàng Ngang */
+.isolated-booking-form .checkbox-wrap {
+    border: 1px solid #ccc !important;
+    border-radius: 6px !important;
+    padding: 10px 15px !important;
+    gap: 0 !important;
+}
+.isolated-booking-form .checkbox-wrap .booking-group {
+    display: flex !important;
+    align-items: center !important;
+}
+.isolated-booking-form .checkbox-wrap .border-left {
+    border-left: 1px solid #ccc !important;
+    padding-left: 15px !important;
+}
+.isolated-booking-form .custom-check .wpcf7-list-item {
+    margin: 0 !important;
+    width: 100% !important;
+}
+.contact__new__form .col {padding-bottom:0px!important;padding-right:0px!important;}
+.isolated-booking-form .custom-check label {
+    display: flex !important;
+    flex-direction: row-reverse !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+    cursor: pointer !important;
+    text-transform: none !important;
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    color: #d93025 !important;
+}
+.isolated-booking-form .custom-check input[type="checkbox"] {
+    width: 18px !important;
+    height: 18px !important;
+    accent-color: #d93025 !important;
+    margin: auto 5px!important;
+}
+
+/* =========================================
+   5. NÚT SUBMIT & RESPONSIVE
+========================================= */
+.isolated-booking-form .grid-submit-col {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr 1fr !important;
+    gap: 15px !important;
+    align-items: end !important;
+}
+.isolated-booking-form .submit-btn {
+    width: 100% !important;
+    background: #3b7d8b !important;
+    border: none !important;
+    border-radius: 6px !important;
+    font-weight: bold !important;
+    font-size: 12px !important;
+    color: #fff !important;
+    cursor: pointer !important;
+    transition: 0.3s !important;
+    height: 32px !important;
+    margin-top:20px;
+    margin-bottom: 0px !important;
+    margin:auto!important;
+}
+.isolated-booking-form .submit-btn .wpcf7-spinner {
+    display: none !important;
+}
+.isolated-booking-form .submit-btn:hover {
+    background: #2a5a65 !important;
+}
+.isolated-booking-form .booking-group .col {
+    padding-bottom:0;
+}
+
+/* Responsive Mobile */
+@media (max-width: 768px) {
+    .isolated-booking-form .form-row, 
+    .isolated-booking-form .grid-submit-col {
+        flex-direction: column !important;
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+    }
+    .isolated-booking-form .form-row {
+        gap: 5px!important;
+    }
+    .isolated-booking-form .grid-radio-2col .wpcf7-list-item-label {
+        justify-content: flex-start !important;
+        padding: 2px 1px 2px 2px !important;
+        gap: 4px !important;
+        border-radius: 8px;
+    }
+
+    .isolated-booking-form .booking-body {
+        padding: 15px !important;
+    }
+
+    .isolated-booking-form .grid-radio-4col .wpcf7-form-control {
+        grid-template-columns: 1fr 1fr !important;
+    }
+    .isolated-booking-form .checkbox-wrap .border-left {
+        border-left: none !important;
+        border-top: none !important;
+        padding-left: 0 !important;
+        padding-top: 0px !important;
+        margin-top: 0px !important;
+    }
+
+    .isolated-booking-form .submit-btn {
+        width: 100% !important;
+        background: #3b7d8b !important;
+        border: none !important;
+        border-radius: 6px !important;
+        font-weight: bold !important;
+        font-size: 10px !important;
+        color: #fff !important;
+        cursor: pointer !important;
+        transition: 0.3s !important;
+        height: 32px !important;
+        margin-top: 20px;
+        margin-bottom: 0px !important;
+    }
+}
+
+
+.page-booking-form .booking-body .col {padding: 0 3px 6px !important}
+.wpcf7 span.wpcf7-list-item {margin-right:0!important;}
+ input[type=checkbox], input[type=radio] {margin-right:0px!important;}
+ .wpcf7 label {
+        display: flex !important;
+    width: 100% !important;
+    justify-content: space-around;
+    font-size: 12px;
+    gap: 5px;
+}
+
+.row-divided>.col+.col:not(.large-12) {
+    border-left: none!important;
+}
+
+
+.ds-page-wrap .widget_nav_menu{display:none!important}
+.entry-divider {display:none!important}
+
+.article-inner .author-box {border:1px solid #ccc!important;border-radius:10px!important;padding:10px!important;margin-top:20px!important}
