@@ -269,7 +269,7 @@ while ( $recentPosts->have_posts() ) : $recentPosts->the_post();
 					?>
 					</p>
 					<?php } ?>
-					<h5 class="post-title is-<?php echo $title_size; ?> <?php echo $title_style;?>"><?php the_title(); ?></h5>
+					<h3 class="post-title is-<?php echo $title_size; ?> <?php echo $title_style;?>"><?php the_title(); ?></h3>
 					<?php if((!has_post_thumbnail() && $show_date !== 'false') || $show_date == 'text') {?><div class="post-meta is-small op-8"><?php echo get_the_date(); ?></div><?php } ?>
 					<div class="is-divider"></div>
 					<?php if($show_excerpt !== 'false') { ?>

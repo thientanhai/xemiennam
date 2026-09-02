@@ -17,6 +17,11 @@ if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 				</div>
 			<?php endif; ?>
 
+			<div class="single-breadcrumnb">
+				<?php if (function_exists('rank_math_the_breadcrumbs')) rank_math_the_breadcrumbs(); ?>
+
+			</div>
+
 			<h1 class="entry-title single-title" style="font-weight:700;font-size:28px;margin-bottom:15px;line-height:1.3;">
 				<?php the_title(); ?>
 			</h1>

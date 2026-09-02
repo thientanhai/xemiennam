@@ -10,9 +10,9 @@ $current_category_id = ( $queried_term && ! is_wp_error( $queried_term ) && isse
 $current_category    = $current_category_id ? get_term( $current_category_id, 'category' ) : null;
 $root_category_id    = 166;
 
-// Subcategories (child of 166) or other categories show default category template
+// Subcategories (child of 166) or other categories show default Flatsome category template
 if ( $current_category_id !== $root_category_id ) {
-	require get_template_directory() . '/category-default.php';
+	require __DIR__ . '/category-default.php';
 	return;
 }
 
@@ -283,105 +283,181 @@ $paged = max( 1, (int) get_query_var( 'paged' ), (int) get_query_var( 'page' ) )
 		<div class="webdaitin-sections-wrapper">
 
 			<?php
-			// Display ALL Subcategories as Sections for Root Category 166
-			if ( ! empty( $tab_terms ) ) :
-				$sections_rendered = 0;
-				foreach ( $tab_terms as $subcat_term ) {
-					$sub_query = new WP_Query(
-						array(
-							'post_type'           => 'post',
-							'post_status'         => 'publish',
-							'posts_per_page'      => 5,
-							'cat'                 => $subcat_term->term_id,
-							'ignore_sticky_posts' => true,
-						)
-					);
+			if ( $current_category_id === $root_category_id ) :
+				// Display ALL Subcategories as Sections for Root Category 166
+				if ( ! empty( $tab_terms ) ) :
+					$sections_rendered = 0;
+					foreach ( $tab_terms as $subcat_term ) {
+						$sub_query = new WP_Query(
+							array(
+								'post_type'           => 'post',
+								'post_status'         => 'publish',
+								'posts_per_page'      => 5,
+								'cat'                 => $subcat_term->term_id,
+								'ignore_sticky_posts' => true,
+							)
+						);
 
-					if ( $sub_query->have_posts() ) {
-						webdaitin_render_hopphat_section( $subcat_term, $sub_query, true );
-						$sections_rendered++;
+						if ( $sub_query->have_posts() ) {
+							webdaitin_render_hopphat_section( $subcat_term, $sub_query, true );
+							$sections_rendered++;
+						}
 					}
-				}
 
-				// If subcategories had no posts, fallback to Category 166 direct posts
-				if ( 0 === $sections_rendered ) :
-					$main_query = new WP_Query(
-						array(
-							'post_type'           => 'post',
-							'post_status'         => 'publish',
-							'posts_per_page'      => 15,
-							'paged'               => $paged,
-							'cat'                 => $root_category_id,
-							'ignore_sticky_posts' => true,
-						)
-					);
-					if ( $main_query->have_posts() ) :
-						webdaitin_render_hopphat_section( $current_category, $main_query, false );
+					// If subcategories had no posts, fallback to Category 166 direct posts
+					if ( 0 === $sections_rendered ) :
+						$main_query = new WP_Query(
+							array(
+								'post_type'           => 'post',
+								'post_status'         => 'publish',
+								'posts_per_page'      => 15,
+								'paged'               => $paged,
+								'cat'                 => $root_category_id,
+								'ignore_sticky_posts' => true,
+							)
+						);
+						if ( $main_query->have_posts() ) :
+							webdaitin_render_hopphat_section( $current_category, $main_query, false );
 
-						// Remaining grid posts if > 5 posts
-						if ( count( $main_query->posts ) > 5 ) :
-							$grid_posts = array_slice( $main_query->posts, 5 );
-							?>
-							<div class="webdaitin-grid-section">
-								<div class="webdaitin-post-grid">
-									<?php foreach ( $grid_posts as $grid_item ) : ?>
-										<?php
-										$g_id    = $grid_item->ID;
-										$g_image = get_the_post_thumbnail_url( $g_id, 'medium' );
-										?>
-										<article class="webdaitin-card webdaitin-grid-card">
-											<a class="webdaitin-grid-thumb" href="<?php echo esc_url( get_permalink( $g_id ) ); ?>">
-												<?php if ( $g_image ) : ?>
-													<img src="<?php echo esc_url( $g_image ); ?>" alt="<?php echo esc_attr( get_the_title( $g_id ) ); ?>" loading="lazy" />
-												<?php endif; ?>
-											</a>
-											<div class="webdaitin-grid-body">
-												<h4 class="webdaitin-grid-title">
-													<a href="<?php echo esc_url( get_permalink( $g_id ) ); ?>"><?php echo esc_html( get_the_title( $g_id ) ); ?></a>
-												</h4>
-												<div class="webdaitin-post-meta webdaitin-post-meta--compact">
-													<span><?php echo esc_html( get_the_date( 'd-m-Y', $g_id ) ); ?></span>
-												</div>
-												<p class="webdaitin-post-excerpt webdaitin-post-excerpt--compact">
-													<?php echo esc_html( wp_trim_words( wp_strip_all_tags( get_the_excerpt( $g_id ) ), 18, '...' ) ); ?>
-												</p>
-											</div>
-										</article>
-									<?php endforeach; ?>
-								</div>
-							</div>
-						<?php endif; ?>
-
-						<?php if ( $main_query->max_num_pages > 1 ) : ?>
-							<nav class="webdaitin-pagination" aria-label="Pagination">
-								<?php
-								echo paginate_links(
-									array(
-										'base'      => str_replace( 999999999, '%#%', esc_url( get_pagenum_link( 999999999 ) ) ),
-										'format'    => '?paged=%#%',
-										'current'   => $paged,
-										'total'     => $main_query->max_num_pages,
-										'prev_text' => '‹',
-										'next_text' => '›',
-										'type'      => 'list',
-									)
-								);
+							// Remaining grid posts if > 5 posts
+							if ( count( $main_query->posts ) > 5 ) :
+								$grid_posts = array_slice( $main_query->posts, 5 );
 								?>
-							</nav>
+								<div class="webdaitin-grid-section">
+									<div class="webdaitin-post-grid">
+										<?php foreach ( $grid_posts as $grid_item ) : ?>
+											<?php
+											$g_id    = $grid_item->ID;
+											$g_image = get_the_post_thumbnail_url( $g_id, 'medium' );
+											?>
+											<article class="webdaitin-card webdaitin-grid-card">
+												<a class="webdaitin-grid-thumb" href="<?php echo esc_url( get_permalink( $g_id ) ); ?>">
+													<?php if ( $g_image ) : ?>
+														<img src="<?php echo esc_url( $g_image ); ?>" alt="<?php echo esc_attr( get_the_title( $g_id ) ); ?>" loading="lazy" />
+													<?php endif; ?>
+												</a>
+												<div class="webdaitin-grid-body">
+													<h4 class="webdaitin-grid-title">
+														<a href="<?php echo esc_url( get_permalink( $g_id ) ); ?>"><?php echo esc_html( get_the_title( $g_id ) ); ?></a>
+													</h4>
+													<div class="webdaitin-post-meta webdaitin-post-meta--compact">
+														<span><?php echo esc_html( get_the_date( 'd-m-Y', $g_id ) ); ?></span>
+													</div>
+													<p class="webdaitin-post-excerpt webdaitin-post-excerpt--compact">
+														<?php echo esc_html( wp_trim_words( wp_strip_all_tags( get_the_excerpt( $g_id ) ), 18, '...' ) ); ?>
+													</p>
+												</div>
+											</article>
+										<?php endforeach; ?>
+									</div>
+								</div>
+							<?php endif; ?>
+
+							<?php if ( $main_query->max_num_pages > 1 ) : ?>
+								<nav class="webdaitin-pagination" aria-label="Pagination">
+									<?php
+									echo paginate_links(
+										array(
+											'base'      => str_replace( 999999999, '%#%', esc_url( get_pagenum_link( 999999999 ) ) ),
+											'format'    => '?paged=%#%',
+											'current'   => $paged,
+											'total'     => $main_query->max_num_pages,
+											'prev_text' => '‹',
+											'next_text' => '›',
+											'type'      => 'list',
+										)
+									);
+									?>
+								</nav>
+							<?php endif; ?>
+						<?php else : ?>
+							<section class="webdaitin-empty-state webdaitin-card">
+								<h2>Chưa có bài viết</h2>
+								<p>Danh mục này hiện chưa có nội dung. Vui lòng quay lại sau.</p>
+							</section>
 						<?php endif; ?>
-					<?php else : ?>
-						<section class="webdaitin-empty-state webdaitin-card">
-							<h2>Chưa có bài viết</h2>
-							<p>Danh mục này hiện chưa có nội dung. Vui lòng quay lại sau.</p>
-						</section>
 					<?php endif; ?>
+
+				<?php else : ?>
+					<section class="webdaitin-empty-state webdaitin-card">
+						<h2>Chưa có bài viết</h2>
+						<p>Danh mục này hiện chưa có nội dung. Vui lòng quay lại sau.</p>
+					</section>
 				<?php endif; ?>
 
 			<?php else : ?>
-				<section class="webdaitin-empty-state webdaitin-card">
-					<h2>Chưa có bài viết</h2>
-					<p>Danh mục này hiện chưa có nội dung. Vui lòng quay lại sau.</p>
-				</section>
+				<!-- Display posts for specific subcategory under Category 166 -->
+				<?php
+				$subcat_query = new WP_Query(
+					array(
+						'post_type'           => 'post',
+						'post_status'         => 'publish',
+						'posts_per_page'      => 15,
+						'paged'               => $paged,
+						'cat'                 => $current_category_id,
+						'ignore_sticky_posts' => true,
+					)
+				);
+				if ( $subcat_query->have_posts() ) :
+					webdaitin_render_hopphat_section( $current_category, $subcat_query, false );
+
+					// Remaining grid posts if > 5 posts
+					if ( count( $subcat_query->posts ) > 5 ) :
+						$grid_posts = array_slice( $subcat_query->posts, 5 );
+						?>
+						<div class="webdaitin-grid-section">
+							<div class="webdaitin-post-grid">
+								<?php foreach ( $grid_posts as $grid_item ) : ?>
+									<?php
+									$g_id    = $grid_item->ID;
+									$g_image = get_the_post_thumbnail_url( $g_id, 'medium' );
+									?>
+									<article class="webdaitin-card webdaitin-grid-card">
+										<a class="webdaitin-grid-thumb" href="<?php echo esc_url( get_permalink( $g_id ) ); ?>">
+											<?php if ( $g_image ) : ?>
+												<img src="<?php echo esc_url( $g_image ); ?>" alt="<?php echo esc_attr( get_the_title( $g_id ) ); ?>" loading="lazy" />
+											<?php endif; ?>
+										</a>
+										<div class="webdaitin-grid-body">
+											<h4 class="webdaitin-grid-title">
+												<a href="<?php echo esc_url( get_permalink( $g_id ) ); ?>"><?php echo esc_html( get_the_title( $g_id ) ); ?></a>
+											</h4>
+											<div class="webdaitin-post-meta webdaitin-post-meta--compact">
+												<span><?php echo esc_html( get_the_date( 'd-m-Y', $g_id ) ); ?></span>
+											</div>
+											<p class="webdaitin-post-excerpt webdaitin-post-excerpt--compact">
+												<?php echo esc_html( wp_trim_words( wp_strip_all_tags( get_the_excerpt( $g_id ) ), 18, '...' ) ); ?>
+											</p>
+										</div>
+									</article>
+								<?php endforeach; ?>
+							</div>
+						</div>
+					<?php endif; ?>
+
+					<?php if ( $subcat_query->max_num_pages > 1 ) : ?>
+						<nav class="webdaitin-pagination" aria-label="Pagination">
+							<?php
+							echo paginate_links(
+								array(
+									'base'      => str_replace( 999999999, '%#%', esc_url( get_pagenum_link( 999999999 ) ) ),
+									'format'    => '?paged=%#%',
+									'current'   => $paged,
+									'total'     => $subcat_query->max_num_pages,
+									'prev_text' => '‹',
+									'next_text' => '›',
+									'type'      => 'list',
+								)
+							);
+							?>
+						</nav>
+					<?php endif; ?>
+				<?php else : ?>
+					<section class="webdaitin-empty-state webdaitin-card">
+						<h2>Chưa có bài viết</h2>
+						<p>Danh mục này hiện chưa có nội dung. Vui lòng quay lại sau.</p>
+					</section>
+				<?php endif; ?>
 			<?php endif; ?>
 
 		</div><!-- .webdaitin-sections-wrapper -->

@@ -940,6 +940,6 @@ font-size:9px!important;
 
 
 .ds-page-wrap .widget_nav_menu{display:none!important}
-.entry-divider {display:none!important}
+.entry-meta .cat-links, .entry-divider {display:none!important}
 
 .article-inner .author-box {border:1px solid #ccc!important;border-radius:10px!important;padding:10px!important;margin-top:20px!important}
