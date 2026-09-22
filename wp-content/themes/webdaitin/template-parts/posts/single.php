@@ -28,7 +28,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
 			<div class="entry-meta uppercase is-xsmall" style="font-size:13px;color:#888;margin-bottom:25px;display:flex;gap:15px;flex-wrap:wrap;">
 				<span class="posted-on"><i class="icon-calendar"></i> <?php echo esc_html( get_the_date( 'd-m-Y' ) ); ?></span>
-				<span class="byline"><i class="icon-user"></i> <?php the_author(); ?></span>
+				<span class="byline"><i class="icon-user"></i> <a href="/doan-minh-tai/">Đoàn Minh Tài</span></a>
 				<?php if ( has_category() ) : ?>
 					<span class="cat-links"><i class="icon-folder"></i> <?php the_category( ', ' ); ?></span>
 				<?php endif; ?>
@@ -38,6 +38,46 @@ if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 		<div class="entry-content single-page">
 			<?php the_content(); ?>
 		</div>
+
+		<?php if ( get_theme_mod( 'blog_share', 1 ) ) : ?>
+			<div class="blog-share text-center">
+				<div class="is-divider medium" style="margin:25px auto 15px; width:30px; height:2px; background:#ccc;"></div>
+				<?php echo do_shortcode( '[share]' ); ?>
+			</div>
+		<?php endif; ?>
+
+		<?php
+		if ( get_theme_mod( 'blog_author_box', 1 ) ) :
+			$author_id          = get_the_author_meta( 'ID' );
+			$author_name        = get_the_author_meta( 'display_name' );
+			$author_description = get_the_author_meta( 'description' );
+			$author_url         = get_author_posts_url( $author_id );
+			$author_avatar      = get_avatar( $author_id, 110 );
+			?>
+			<div class="entry-author author-box">
+				<div class="author-box-flex">
+					<?php if ( $author_avatar ) : ?>
+						<div class="author-box-avatar">
+							<a href="<?php echo esc_url( $author_url ); ?>">
+								<?php echo $author_avatar; ?>
+							</a>
+						</div>
+					<?php endif; ?>
+					<div class="author-box-content">
+						<h5 class="author-name">
+							<a href="<?php echo esc_url( $author_url ); ?>">
+								<?php echo esc_html( $author_name ); ?>
+							</a>
+						</h5>
+						<?php if ( $author_description ) : ?>
+							<div class="author-desc">
+								<?php echo wp_kses_post( wpautop( $author_description ) ); ?>
+							</div>
+						<?php endif; ?>
+					</div>
+				</div>
+			</div>
+		<?php endif; ?>
 	</div>
 </article>
 

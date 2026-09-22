@@ -3,9 +3,8 @@
 .header-bottom-nav {justify-content: space-between!important}
 .section__why .col{padding-bottom:0!important}
 #section_1628658210 {padding-bottom:0!important}
-.entry-content a {
-     color: #E65F5C!important;
-}
+.entry-content a {color: #E65F5C!important;}
+.wpcf7-spinner {display: none !important;}
 /* Sử dụng đúng mã content của class .icon-phone */
 .header-button-1 .header-button a.button span::before {
     content: "\e600"; /* Mã chuẩn của icon-phone */
@@ -541,8 +540,10 @@ width:100%!important;
 @media screen and (max-width: 849px) {
     h2, .post-title {
         font-size: 18px !important;
-        line-height: 1.3 !important;
+        line-height: 1.3 !important;    
     }
+    .section__why .col-inner .icon-box p{font-size: 16px!important;}
+    #form-bao-gia {width: 100%!important;}
     .section__blog .box-text h5{
         font-size: 14px!important;
     }
@@ -859,7 +860,7 @@ font-size:9px!important;
     cursor: pointer !important;
     transition: 0.3s !important;
     height: 32px !important;
-    margin-top:20px;
+    margin-top:10px!important;
     margin-bottom: 0px !important;
     margin:auto!important;
 }
@@ -917,7 +918,7 @@ font-size:9px!important;
         cursor: pointer !important;
         transition: 0.3s !important;
         height: 32px !important;
-        margin-top: 20px;
+        margin-top: 10px !important;
         margin-bottom: 0px !important;
     }
 }
@@ -937,9 +938,131 @@ font-size:9px!important;
 .row-divided>.col+.col:not(.large-12) {
     border-left: none!important;
 }
-
+#form-bao-gia {border-radius:12px!important;}
 
 .ds-page-wrap .widget_nav_menu{display:none!important}
 .entry-meta .cat-links, .entry-divider {display:none!important}
 
-.article-inner .author-box {border:1px solid #ccc!important;border-radius:10px!important;padding:10px!important;margin-top:20px!important}
+.article-inner .author-box {
+	border: 1px solid #dcdcdc !important;
+	border-radius: 4px !important;
+	padding: 20px !important;
+	margin-top: 25px !important;
+	margin-bottom: 30px !important;
+	background: #fff !important;
+}
+.author-box-flex {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+}
+.author-box-avatar {
+	flex-shrink: 0;
+	width: 110px;
+}
+.author-box-avatar img {
+	width: 100% !important;
+	height: auto !important;
+	display: block;
+	border-radius: 0 !important;
+}
+.author-box-content {
+	flex-grow: 1;
+}
+.author-box-content .author-name {
+	font-size: 16px !important;
+	font-weight: 700 !important;
+	margin: 0 0 8px 0 !important;
+	color: #111 !important;
+	text-transform: none !important;
+}
+.author-box-content .author-name a {
+	color: #111 !important;
+	text-decoration: underline !important;
+}
+.author-box-content .author-name a:hover {
+	color: var(--primary-color, #1573ba) !important;
+}
+.author-box-content .author-desc {
+	font-size: 14px !important;
+	color: #333 !important;
+	line-height: 1.6 !important;
+}
+.author-box-content .author-desc p {
+	margin: 0 0 5px 0 !important;
+}
+.author-box-content .author-desc p:last-child {
+	margin-bottom: 0 !important;
+}
+
+@media (max-width: 549px) {
+	.author-box-flex {
+		flex-direction: column;
+		text-align: center;
+	}
+	.author-box-avatar {
+		margin: 0 auto 10px;
+	}
+}
+
+/* =========================================================
+   AUTO RESPONSIVE TABLES IN POST CONTENT
+   ========================================================= */
+.entry-content .table-responsive,
+.entry-content .wp-block-table {
+	display: block !important;
+	width: 100% !important;
+	max-width: 100% !important;
+	overflow-x: auto !important;
+	-webkit-overflow-scrolling: touch;
+	margin-bottom: 1.5em;
+	border: 1px solid #e2e8f0;
+	border-radius: 6px;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.entry-content .table-responsive table,
+.entry-content .wp-block-table table,
+.entry-content table {
+	display: table !important;
+	width: 100% !important;
+	min-width: 650px; /* Đảm bảo đủ chiều rộng cho tất cả các cột hiển thị đầy đủ trên mobile */
+	border-collapse: collapse !important;
+	margin-bottom: 0 !important;
+}
+
+.entry-content table th,
+.entry-content table td {
+	padding: 10px 14px;
+	border: 1px solid #e2e8f0;
+	font-size: 14px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.entry-content table th {
+	background-color: #f7fafc;
+	font-weight: 700;
+	color: #2d3748;
+	white-space: nowrap; /* Giữ tiêu đề cột nguyên dòng */
+}
+
+.entry-content table tr:nth-child(even) {
+	background-color: #f9fbfd;
+}
+
+/* Thanh cuộn mượt nổi bật trên mobile để người dùng biết có thể cuộn ngang */
+.entry-content .table-responsive::-webkit-scrollbar,
+.entry-content .wp-block-table::-webkit-scrollbar {
+	height: 6px;
+}
+.entry-content .table-responsive::-webkit-scrollbar-track,
+.entry-content .wp-block-table::-webkit-scrollbar-track {
+	background: #f1f5f9;
+	border-radius: 3px;
+}
+.entry-content .table-responsive::-webkit-scrollbar-thumb,
+.entry-content .wp-block-table::-webkit-scrollbar-thumb {
+	background: #1573ba;
+	border-radius: 3px;
+}

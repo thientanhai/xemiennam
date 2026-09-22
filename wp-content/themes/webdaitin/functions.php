@@ -1202,3 +1202,24 @@ add_action( 'acf/init', function () {
 	) );
 
 } );
+
+/**
+ * Tích hợp Module Logo Slider (Swiper Center Mode + ACF Options Pro)
+ */
+require_once get_stylesheet_directory() . '/inc/logo-slider.php';
+
+/**
+ * Tự động bọc <table> trong bài viết bằng <div class="table-responsive"> để tự động Responsive trên Mobile
+ */
+add_filter( 'the_content', 'webdaitin_auto_responsive_tables', 20 );
+function webdaitin_auto_responsive_tables( $content ) {
+	if ( is_admin() || empty( $content ) || strpos( $content, '<table' ) === false ) {
+		return $content;
+	}
+
+	// Nếu thẻ table chưa nằm trong wrapper div.table-responsive thì tự động bọc lại
+	return preg_replace_callback( '/(?<!<div class="table-responsive">)(<table[\s\S]*?<\/table>)/i', function( $matches ) {
+		return '<div class="table-responsive">' . $matches[0] . '</div>';
+	}, $content );
+}
+

@@ -10,7 +10,7 @@ global $flatsome_opt;
 ?>
 
 </main>
-
+<?php echo do_shortcode('[lightbox id="form-bao-gia" width="600px" padding="0"][contact-form-7 id="cedbca4" title="Liên hệ - Đặt xe"][/lightbox]'); ?>
 <footer id="footer" class="footer-wrapper">
 
 	<?php do_action('flatsome_footer'); ?>
