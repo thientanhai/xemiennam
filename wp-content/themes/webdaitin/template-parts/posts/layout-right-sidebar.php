@@ -183,7 +183,7 @@ endif;
 			<div class="related-posts-section">
 				<div class="related-posts-title">
 					<span class="line"></span>
-					<h3>BÀI VIẾT LIÊN QUAN</h3>
+					<p class="related-posts-heading">BÀI VIẾT LIÊN QUAN</p>
 					<span class="line"></span>
 				</div>
 				<div class="row row-small related-posts-grid">
@@ -200,7 +200,7 @@ endif;
 								<?php endif; ?>
 								<span class="related-post-date"><i class="icon-calendar"></i> <?php echo esc_html( get_the_date( 'd-m-Y' ) ); ?></span>
 							</div>
-							<h4 class="related-post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
+							<p class="related-post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
 							<div class="related-post-excerpt"><?php echo esc_html( wp_trim_words( get_the_excerpt(), 20 ) ); ?></div>
 						</div>
 					</div>
@@ -225,7 +225,7 @@ endif;
 
 	.related-posts-section{background:#fff;padding:30px;border-radius:4px;box-shadow:0 0 15px rgba(0,0,0,.05);margin-top:20px;margin-bottom:30px;}
 	.related-posts-title{display:flex;align-items:center;justify-content:center;gap:20px;margin-bottom:30px;}
-	.related-posts-title h3{margin:0;white-space:nowrap;font-weight:700;letter-spacing:.5px;}
+	.related-posts-title h3, .related-posts-title p, .related-posts-heading{margin:0;white-space:nowrap;font-weight:700;letter-spacing:.5px;font-size:1.25em;}
 	.related-posts-title .line{flex:1;height:1px;background:#ddd;}
 	.related-post-item{margin-bottom:20px;}
 	.related-post-thumb{display:block;overflow:hidden;border-radius:4px;margin-bottom:12px;}
@@ -288,7 +288,7 @@ endif;
 					<div class="related-posts-section">
 						<div class="related-posts-title">
 							<span class="line"></span>
-							<h3>BÀI VIẾT LIÊN QUAN</h3>
+							<p class="related-posts-heading">BÀI VIẾT LIÊN QUAN</p>
 							<span class="line"></span>
 						</div>
 						<div class="row row-small related-posts-grid">
@@ -305,7 +305,7 @@ endif;
 										<?php endif; ?>
 										<span class="related-post-date"><i class="icon-calendar"></i> <?php echo esc_html( get_the_date( 'd-m-Y' ) ); ?></span>
 									</div>
-									<h4 class="related-post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
+									<p class="related-post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
 									<div class="related-post-excerpt"><?php echo esc_html( wp_trim_words( get_the_excerpt(), 20 ) ); ?></div>
 								</div>
 							</div>

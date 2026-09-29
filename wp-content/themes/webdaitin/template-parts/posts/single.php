@@ -64,11 +64,11 @@ if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 						</div>
 					<?php endif; ?>
 					<div class="author-box-content">
-						<h5 class="author-name">
+						<p class="author-name">
 							<a href="<?php echo esc_url( $author_url ); ?>">
 								<?php echo esc_html( $author_name ); ?>
 							</a>
-						</h5>
+						</p>
 						<?php if ( $author_description ) : ?>
 							<div class="author-desc">
 								<?php echo wp_kses_post( wpautop( $author_description ) ); ?>

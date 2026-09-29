@@ -160,7 +160,7 @@ function flatsome_related_posts_by_category() {
 	<div class="related-posts-section" style="background:#fff;padding:30px;border-radius:4px;box-shadow:0 0 15px rgba(0,0,0,.05);margin-top:20px;margin-bottom:30px;">
 		<div class="related-posts-title" style="display:flex;align-items:center;justify-content:center;gap:20px;margin-bottom:30px;">
 			<span class="line" style="flex:1;height:1px;background:#ddd;"></span>
-			<h3 style="margin:0;white-space:nowrap;font-weight:700;letter-spacing:.5px;">BÀI VIẾT LIÊN QUAN</h3>
+			<p style="margin:0;white-space:nowrap;font-weight:700;letter-spacing:.5px;font-size:1.25em;">BÀI VIẾT LIÊN QUAN</p>
 			<span class="line" style="flex:1;height:1px;background:#ddd;"></span>
 		</div>
 		<div class="row row-small related-posts-grid">
@@ -177,9 +177,9 @@ function flatsome_related_posts_by_category() {
 						<?php endif; ?>
 						<span class="related-post-date"><i class="icon-calendar"></i> <?php echo esc_html( get_the_date( 'd-m-Y' ) ); ?></span>
 					</div>
-					<h4 class="related-post-title" style="font-size:15px;font-weight:700;line-height:1.4;margin:0 0 8px;">
+					<p class="related-post-title" style="font-size:15px;font-weight:700;line-height:1.4;margin:0 0 8px;">
 						<a href="<?php the_permalink(); ?>" style="color:#222;"><?php the_title(); ?></a>
-					</h4>
+					</p>
 					<div class="related-post-excerpt" style="font-size:13px;color:#777;line-height:1.5;">
 						<?php echo esc_html( wp_trim_words( get_the_excerpt(), 20 ) ); ?>
 					</div>
@@ -1222,4 +1222,40 @@ function webdaitin_auto_responsive_tables( $content ) {
 		return '<div class="table-responsive">' . $matches[0] . '</div>';
 	}, $content );
 }
+
+add_filter( 'rank_math/frontend/breadcrumb/html', function ( $html, $crumbs, $class ) {
+    // Tìm thẻ span cuối cùng đại diện cho trang hiện tại
+    if ( preg_match('/<span class="last">(.*?)<\/span>/i', $html, $matches) ) {
+        $current_title = $matches[1];
+        
+        // Lấy URL chuẩn của trang hiện tại
+        global $wp;
+        $current_url = home_url( add_query_arg( array(), $wp->request ) ) . '/';
+
+        $search_text = '<span class="last">' . $current_title . '</span>';
+        $replace_text = '<a href="' . esc_url($current_url) . '">' . $current_title . '</a>';
+        
+        $html = str_replace( $search_text, $replace_text, $html );
+    }
+    return $html;
+}, 99, 3);
+
+/**
+ * Filter comment form reply title tag from h3 to p for SEO optimization
+ */
+add_filter( 'comment_form_defaults', function( $defaults ) {
+	$defaults['title_reply_before'] = '<p id="reply-title" class="comment-reply-title h3-style" style="font-size:20px;font-weight:700;margin-bottom:15px;">';
+	$defaults['title_reply_after']  = '</p>';
+	return $defaults;
+} );
+
+/**
+ * Filter Contact Form 7 form elements to convert any h1-h6 tags to p tags for SEO optimization
+ */
+add_filter( 'wpcf7_form_elements', function( $content ) {
+	if ( empty( $content ) ) return $content;
+	$content = preg_replace( '/<h[1-6]([^>]*)>/i', '<p$1>', $content );
+	$content = preg_replace( '/<\/h[1-6]>/i', '</p>', $content );
+	return $content;
+} );
 
