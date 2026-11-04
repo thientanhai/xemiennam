@@ -406,29 +406,35 @@ function flatsome_child_render_xe_metabox( $post ) {
 		$render_img_list( $int_ids, 'Ảnh Nội thất (nhiều ảnh)', 'xe_imgs_interior' );
 		?>
 	</div>
-	<div class="xe-field">
-		<label>Số chỗ (VD: "4 chỗ")</label>
-		<input type="text" name="xe_seats" value="<?php echo esc_attr( $f( 'xe_seats' ) ); ?>">
+	<div class="xe-field-row" style="display:flex;gap:15px;flex-wrap:wrap;margin-top:10px;margin-bottom:15px;">
+		<div class="xe-field" style="flex:1;min-width:120px;">
+			<label>Đời xe (VD: 2024)</label>
+			<input type="text" name="xe_year" value="<?php echo esc_attr( $f( 'xe_year' ) ); ?>" style="width:100%;">
+		</div>
+		<div class="xe-field" style="flex:1;min-width:140px;">
+			<label>Sức chứa hành lý (VD: 3 vali)</label>
+			<input type="text" name="xe_luggage" value="<?php echo esc_attr( $f( 'xe_luggage' ) ); ?>" style="width:100%;">
+		</div>
+		<div class="xe-field" style="flex:1;min-width:140px;">
+			<label>Sức chứa hành khách (VD: 4-7 người)</label>
+			<input type="text" name="xe_seats" value="<?php echo esc_attr( $f( 'xe_seats' ) ); ?>" style="width:100%;">
+		</div>
+		<div class="xe-field" style="flex:1;min-width:120px;">
+			<label>Số lượng xe có (VD: 8 xe)</label>
+			<input type="text" name="xe_quantity" value="<?php echo esc_attr( $f( 'xe_quantity' ) ); ?>" style="width:100%;">
+		</div>
+	</div>
+	<div class="xe-field" style="margin-bottom:15px;">
+		<label>Tiện ích xe (Cách nhau bởi dấu phẩy, VD: Ghế da cao cấp, điều hòa tự động, cổng sạc USB, màn hình giải trí, nước suối, khăn lạnh)</label>
+		<textarea name="xe_amenities" rows="3" style="width:100%;max-width:100%;padding:8px;border-radius:4px;border:1px solid #ccc;"><?php echo esc_textarea( $f( 'xe_amenities' ) ?: $f( 'xe_tags' ) ); ?></textarea>
 	</div>
 	<div class="xe-field">
-		<label>Tag đặc điểm (cách nhau bởi dấu phẩy, VD: Sân bay, Đi tỉnh, Tự lái)</label>
-		<input type="text" name="xe_tags" value="<?php echo esc_attr( $f( 'xe_tags' ) ); ?>">
-	</div>
-	<div class="xe-field-row">
-		<div class="xe-field"><label>Động cơ</label><input type="text" name="xe_engine" value="<?php echo esc_attr( $f( 'xe_engine' ) ); ?>"></div>
-		<div class="xe-field"><label>Nhiên liệu</label><input type="text" name="xe_fuel" value="<?php echo esc_attr( $f( 'xe_fuel' ) ); ?>"></div>
-	</div>
-	<div class="xe-field-row">
-		<div class="xe-field"><label>Điều hòa</label><input type="text" name="xe_ac" value="<?php echo esc_attr( $f( 'xe_ac' ) ); ?>"></div>
-		<div class="xe-field"><label>Hành lý</label><input type="text" name="xe_luggage" value="<?php echo esc_attr( $f( 'xe_luggage' ) ); ?>"></div>
-	</div>
-	<div class="xe-field-row">
-		<div class="xe-field"><label>Hộp số</label><input type="text" name="xe_transmission" value="<?php echo esc_attr( $f( 'xe_transmission' ) ); ?>"></div>
-		<div class="xe-field"><label>Đời xe</label><input type="text" name="xe_year" value="<?php echo esc_attr( $f( 'xe_year' ) ); ?>"></div>
+		<label>Tag đặc điểm phụ (VD: Sân bay, Đi tỉnh, Tự lái)</label>
+		<input type="text" name="xe_tags" value="<?php echo esc_attr( $f( 'xe_tags' ) ); ?>" style="width:100%;max-width:500px;">
 	</div>
 	<div class="xe-field">
 		<label>Link nút "Yêu cầu báo giá"</label>
-		<input type="url" name="xe_quote_link" value="<?php echo esc_attr( $f( 'xe_quote_link' ) ); ?>" placeholder="https://...">
+		<input type="url" name="xe_quote_link" value="<?php echo esc_attr( $f( 'xe_quote_link' ) ); ?>" placeholder="https://..." style="width:100%;max-width:500px;">
 	</div>
 	<script>
 	jQuery(function ($) {
@@ -475,7 +481,7 @@ add_action( 'save_post_xe_dong_xe', function ( $post_id ) {
 			}
 		}
 	}
-	foreach ( array( 'xe_seats', 'xe_tags', 'xe_engine', 'xe_fuel', 'xe_ac', 'xe_luggage', 'xe_transmission', 'xe_year', 'xe_quote_link' ) as $field ) {
+	foreach ( array( 'xe_seats', 'xe_tags', 'xe_amenities', 'xe_engine', 'xe_fuel', 'xe_ac', 'xe_luggage', 'xe_transmission', 'xe_year', 'xe_quantity', 'xe_quote_link' ) as $field ) {
 		if ( isset( $_POST[ $field ] ) ) {
 			update_post_meta( $post_id, $field, sanitize_text_field( wp_unslash( $_POST[ $field ] ) ) );
 		}
@@ -646,14 +652,12 @@ add_shortcode( 'dong_xe_showcase', function ( $atts ) {
 						data-term="<?php echo esc_attr( $term_slug ); ?>"
 						data-title="<?php echo esc_attr( $p->post_title ); ?>"
 						data-seats="<?php echo esc_attr( get_post_meta( $p->ID, 'xe_seats', true ) ); ?>"
-						data-tags="<?php echo esc_attr( get_post_meta( $p->ID, 'xe_tags', true ) ); ?>"
-						data-engine="<?php echo esc_attr( get_post_meta( $p->ID, 'xe_engine', true ) ); ?>"
-						data-fuel="<?php echo esc_attr( get_post_meta( $p->ID, 'xe_fuel', true ) ); ?>"
-						data-ac="<?php echo esc_attr( get_post_meta( $p->ID, 'xe_ac', true ) ); ?>"
-						data-luggage="<?php echo esc_attr( get_post_meta( $p->ID, 'xe_luggage', true ) ); ?>"
-						data-transmission="<?php echo esc_attr( get_post_meta( $p->ID, 'xe_transmission', true ) ); ?>"
 						data-year="<?php echo esc_attr( get_post_meta( $p->ID, 'xe_year', true ) ); ?>"
-						data-quote="<?php echo esc_url( get_post_meta( $p->ID, 'xe_quote_link', true ) ?: '#' ); ?>">
+						data-luggage="<?php echo esc_attr( get_post_meta( $p->ID, 'xe_luggage', true ) ); ?>"
+						data-quantity="<?php echo esc_attr( get_post_meta( $p->ID, 'xe_quantity', true ) ); ?>"
+						data-amenities="<?php echo esc_attr( get_post_meta( $p->ID, 'xe_amenities', true ) ?: get_post_meta( $p->ID, 'xe_tags', true ) ); ?>"
+						data-tags="<?php echo esc_attr( get_post_meta( $p->ID, 'xe_tags', true ) ); ?>"
+						data-quote="<?php echo esc_attr( get_post_meta( $p->ID, 'xe_quote_link', true ) ?: '#form-bao-gia' ); ?>">
 						<span class="xe-item__icon"><?php echo $icon_url ? '<img src="' . esc_url( $icon_url ) . '" alt="">' : $default_icon; ?></span>
 						<span class="xe-item__text">
 							<strong><?php echo esc_html( $p->post_title ); ?></strong>
@@ -677,10 +681,10 @@ add_shortcode( 'dong_xe_showcase', function ( $atts ) {
 				<!-- Toggle nội/ngoại thất -->
 				<div class="xe-toggle-row">
 					<button type="button" class="xe-toggle-btn active" data-show="ext">
-						<?php echo $default_icon; ?> Ngoại thất
+						🚘 NGOẠI THẤT
 					</button>
 					<button type="button" class="xe-toggle-btn" data-show="int">
-						🛋 Nội thất
+						🛋 NỘI THẤT
 					</button>
 				</div>
 
@@ -706,17 +710,56 @@ add_shortcode( 'dong_xe_showcase', function ( $atts ) {
 					<?php endforeach; ?>
 				</div>
 
-				<div class="xe-detail-specs-title">THÔNG SỐ KỸ THUẬT</div>
+				<div class="xe-detail-specs-title">THÔNG TIN XE</div>
 				<div class="xe-detail-specs">
-					<div class="xe-spec"><span>⚙ Động cơ</span><strong class="v-engine"></strong></div>
-					<div class="xe-spec"><span>⛽ Nhiên liệu</span><strong class="v-fuel"></strong></div>
-					<div class="xe-spec"><span>❄ Điều hòa</span><strong class="v-ac"></strong></div>
-					<div class="xe-spec"><span>🧳 Hành lý</span><strong class="v-luggage"></strong></div>
-					<div class="xe-spec"><span>⚙ Hộp số</span><strong class="v-transmission"></strong></div>
-					<div class="xe-spec"><span>📅 Đời xe</span><strong class="v-year"></strong></div>
+					<div class="xe-spec-card">
+						<span class="xe-spec-icon">
+							<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+						</span>
+						<div class="xe-spec-info">
+							<span class="xe-spec-label">Đời xe</span>
+							<strong class="v-year"></strong>
+						</div>
+					</div>
+					<div class="xe-spec-card">
+						<span class="xe-spec-icon">
+							<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="7" width="12" height="14" rx="2"></rect><path d="M9 7V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3"></path><line x1="6" y1="12" x2="18" y2="12"></line></svg>
+						</span>
+						<div class="xe-spec-info">
+							<span class="xe-spec-label">Sức chứa hành lý</span>
+							<strong class="v-luggage"></strong>
+						</div>
+					</div>
+					<div class="xe-spec-card">
+						<span class="xe-spec-icon">
+							<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#475569" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 1 0 7.75"></path></svg>
+						</span>
+						<div class="xe-spec-info">
+							<span class="xe-spec-label">Sức chứa hành khách</span>
+							<strong class="v-seats"></strong>
+						</div>
+					</div>
+					<div class="xe-spec-card">
+						<span class="xe-spec-icon">
+							<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#0284c7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"></path><circle cx="7" cy="17" r="2"></circle><circle cx="17" cy="17" r="2"></circle></svg>
+						</span>
+						<div class="xe-spec-info">
+							<span class="xe-spec-label">Số lượng xe có</span>
+							<strong class="v-quantity"></strong>
+						</div>
+					</div>
+					<div class="xe-spec-card xe-spec-card--full">
+						<span class="xe-spec-icon">
+							<svg viewBox="0 0 24 24" width="20" height="20" fill="#f59e0b" stroke="#f59e0b" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+						</span>
+						<div class="xe-spec-info">
+							<span class="xe-spec-label">Tiện ích</span>
+							<strong class="v-amenities"></strong>
+						</div>
+					</div>
 				</div>
 
-				<a href="#" target="_blank" class="xe-quote-btn">Yêu cầu báo giá ↗</a>
+				<a href="#form-bao-gia" class="xe-quote-btn">Yêu cầu báo giá ↗</a>
 			</div><!-- /.xe-showcase__detail -->
 		</div><!-- /.xe-showcase__body -->
 	</div><!-- /.xe-showcase -->
@@ -756,10 +799,10 @@ add_shortcode( 'dong_xe_showcase', function ( $atts ) {
 	.xe-toggle-btn.active{background:#e4eefb;border-color:#bcd6f2;color:var(--primary-color,#1573ba);}
 	/* Sliders wrap */
 	.xe-sliders-wrap{margin-bottom:16px;}
-	/* Flickity slider */
-	.xe-flickity{border-radius:8px;overflow:hidden;background:#f0f0f0;}
-	.xe-flickity-cell{width:100%;}
-	.xe-flickity-cell img{width:100%;height:260px;object-fit:cover;display:block;}
+	/* Flickity slider - full image without cropping */
+	.xe-flickity{border-radius:10px;overflow:hidden;background:#f8fafc;}
+	.xe-flickity-cell{width:100%;display:flex;align-items:center;justify-content:center;background:#f8fafc;}
+	.xe-flickity-cell img{width:100%;max-height:420px;height:auto;object-fit:contain;display:block;}
 	/* Trước khi Flickity init xong, chỉ hiện ảnh đầu tiên - tránh hiện hết tất cả ảnh dạng list */
 	.xe-flickity:not(.flickity-enabled) .xe-flickity-cell:not(:first-child){display:none;}
 	.xe-flickity .flickity-prev-next-button{width:34px;height:34px;background:rgba(0,0,0,.5);}
@@ -768,19 +811,25 @@ add_shortcode( 'dong_xe_showcase', function ( $atts ) {
 	.xe-flickity .flickity-page-dots{bottom:8px;}
 	.xe-flickity .flickity-page-dots .dot{width:8px;height:8px;margin:0 4px;background:#fff;opacity:.6;}
 	.xe-flickity .flickity-page-dots .dot.is-selected{opacity:1;background:var(--primary-color,#1573ba);}
-	/* Specs */
-	.xe-detail-specs-title{font-size:11px;font-weight:700;color:#aaa;letter-spacing:.5px;margin-bottom:8px;text-transform:uppercase;}
-	.xe-detail-specs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;}
-	.xe-spec{background:#f8f8f8;border-radius:5px;padding:10px 12px;}
-	.xe-spec span{display:block;font-size:11px;color:#999;margin-bottom:3px;}
-	.xe-spec strong{font-size:13px;}
-	.xe-quote-btn{display:block;text-align:center;border:1px solid #ddd;border-radius:5px;padding:12px;font-weight:700;text-decoration:none;color:#333;transition:.2s;}
+	/* Specs Cards Grid */
+	.xe-detail-specs-title{font-size:12px;font-weight:700;color:#64748b;letter-spacing:.5px;margin-top:15px;margin-bottom:12px;text-transform:uppercase;}
+	.xe-detail-specs{display:grid;grid-template-columns:repeat(4, 1fr);gap:12px;margin-bottom:18px;}
+	.xe-spec-card{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:12px 14px;display:flex;align-items:center;gap:12px;}
+	.xe-spec-card--full{grid-column:1 / -1;}
+	.xe-spec-icon{flex:0 0 auto;display:flex;align-items:center;justify-content:center;}
+	.xe-spec-info{display:flex;flex-direction:column;min-width:0;}
+	.xe-spec-label{font-size:11px;color:#64748b;margin-bottom:2px;white-space:nowrap;}
+	.xe-spec-card strong{font-size:13px;font-weight:700;color:#1e293b;line-height:1.4;word-break:break-word;}
+	.xe-quote-btn{display:block;text-align:center;border:1px solid #cbd5e1;border-radius:8px;padding:12px;font-weight:700;text-decoration:none;color:#1e293b;background:#fff;transition:.2s;}
 	.xe-quote-btn:hover{background:var(--primary-color,#1573ba);border-color:var(--primary-color,#1573ba);color:#fff;}
-	@media(max-width:768px){
+	@media(max-width:991px){
+		.xe-detail-specs{grid-template-columns:repeat(2, 1fr);}
+	}
+	@media(max-width:576px){
 		.xe-showcase__body{flex-direction:column;}
 		.xe-showcase__sidebar{width:100%;flex:none;max-height:240px;}
-		.xe-detail-specs{grid-template-columns:1fr;}
-		.xe-slider-panel .slide-bg-image{height:180px !important;}
+		.xe-detail-specs{grid-template-columns:1fr 1fr;}
+		.xe-spec-card--full{grid-column:1 / -1;}
 	}
 	</style>
 
@@ -873,13 +922,12 @@ add_shortcode( 'dong_xe_showcase', function ( $atts ) {
 				tagsWrap.appendChild(span);
 			});
 
-			root.querySelector('.v-engine').textContent       = el.dataset.engine || '';
-			root.querySelector('.v-fuel').textContent         = el.dataset.fuel || '';
-			root.querySelector('.v-ac').textContent           = el.dataset.ac || '';
-			root.querySelector('.v-luggage').textContent      = el.dataset.luggage || '';
-			root.querySelector('.v-transmission').textContent = el.dataset.transmission || '';
-			root.querySelector('.v-year').textContent         = el.dataset.year || '';
-			root.querySelector('.xe-quote-btn').href          = el.dataset.quote || '#';
+			root.querySelector('.v-year').textContent      = el.dataset.year || '—';
+			root.querySelector('.v-luggage').textContent   = el.dataset.luggage || '—';
+			root.querySelector('.v-seats').textContent     = el.dataset.seats || '—';
+			root.querySelector('.v-quantity').textContent  = el.dataset.quantity || 'Có sẵn';
+			root.querySelector('.v-amenities').textContent = el.dataset.amenities || el.dataset.tags || '—';
+			root.querySelector('.xe-quote-btn').href       = el.dataset.quote || '#form-bao-gia';
 
 			showSlider(el.dataset.post, activeType);
 		}
